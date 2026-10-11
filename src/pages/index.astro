@@ -36,7 +36,7 @@ const serviceIcons = ['walk', 'paw', 'bowl', 'home'] as const;
     </div>
   </header>
 
-  <main id="main">
+  <main id="main" tabindex="-1">
     <section id="top" class="relative isolate overflow-hidden">
       <div class="pointer-events-none absolute inset-0 -z-10 opacity-35" aria-hidden="true">
         <img src="/assets/leaf-ornament.svg" alt="" class="absolute -left-10 -top-7 w-44 rotate-[-8deg] sm:w-64" />
@@ -124,7 +124,7 @@ const serviceIcons = ['walk', 'paw', 'bowl', 'home'] as const;
       <div class="relative overflow-hidden rounded-[2rem] bg-olive px-6 py-12 text-cream sm:px-12 sm:py-16 lg:px-16">
         <div class="pointer-events-none absolute -bottom-12 -right-6 opacity-20" aria-hidden="true"><img src="/assets/leaf-ornament.svg" alt="" class="w-48 -scale-x-100 sm:w-72" /></div>
         <div class="relative grid gap-8 lg:grid-cols-[1fr_auto] lg:items-center">
-          <div><p class="mb-3 text-xs font-bold uppercase tracking-[0.2em] text-cream/70">A happy tail starts here</p><h2 class="max-w-2xl font-display text-4xl font-semibold leading-tight sm:text-5xl">Tell us a little about your best friend.</h2><p class="mt-4 max-w-xl leading-7 text-cream/80">Get in touch to chat about the kind of walks or care that would suit your dog.</p></div>
+          <div><p class="mb-3 text-xs font-bold uppercase tracking-[0.2em] text-cream/90">A happy tail starts here</p><h2 class="max-w-2xl font-display text-4xl font-semibold leading-tight sm:text-5xl">Tell us a little about your best friend.</h2><p class="mt-4 max-w-xl leading-7 text-cream/90">Get in touch to chat about the kind of walks or care that would suit your dog.</p></div>
           <div class="flex flex-col gap-3 sm:flex-row lg:flex-col">
             <a href={business.phoneHref} class="inline-flex min-h-14 items-center justify-center gap-3 rounded-full bg-cream px-6 py-4 font-semibold text-forest transition hover:bg-white"><Icon name="phone" class="h-5 w-5" />{business.phone}</a>
             <a href={`mailto:${business.email}`} class="inline-flex min-h-14 items-center justify-center gap-3 rounded-full border border-cream/60 px-6 py-4 font-semibold text-cream transition hover:bg-cream/10"><Icon name="mail" class="h-5 w-5" />Email us</a>
