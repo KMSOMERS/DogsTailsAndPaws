@@ -1,0 +1,157 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Icon from '../components/Icon.astro';
+import { business } from '../content/business';
+
+const serviceIcons = ['walk', 'paw', 'bowl', 'home'] as const;
+---
+
+<BaseLayout>
+  <a class="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-50 focus:bg-cream focus:px-4 focus:py-3" href="#main">Skip to content</a>
+
+  <header class="relative z-20 border-b border-gold/45 bg-cream/95">
+    <div class="mx-auto flex max-w-7xl items-center justify-between gap-5 px-5 py-4 sm:px-8 lg:px-12">
+      <a href="#top" class="flex items-center gap-3 rounded-sm text-forest" aria-label={`${business.name}, home`}>
+        <img src="/assets/paw-logo.svg" alt="" class="h-12 w-12 shrink-0" />
+        <span class="font-display text-xl font-bold leading-none sm:text-2xl">{business.name}</span>
+      </a>
+      <nav aria-label="Main navigation" class="hidden items-center gap-8 md:flex">
+        <a class="text-sm font-medium transition-colors hover:text-olive" href="#services">Services</a>
+        <a class="text-sm font-medium transition-colors hover:text-olive" href="#care">Our care</a>
+        <a class="text-sm font-medium transition-colors hover:text-olive" href="#areas">Areas</a>
+        <a class="rounded-full border border-forest px-5 py-2.5 text-sm font-semibold transition-colors hover:bg-forest hover:text-cream" href="#contact">Get in touch</a>
+      </nav>
+      <details class="group relative md:hidden">
+        <summary class="flex h-11 w-11 cursor-pointer list-none items-center justify-center rounded-full border border-olive/50 text-forest focus-visible:outline" aria-label="Navigation menu">
+          <Icon name="menu" class="h-6 w-6 group-open:hidden" />
+          <span class="hidden text-2xl leading-none group-open:block" aria-hidden="true">×</span>
+        </summary>
+        <nav aria-label="Mobile navigation" class="absolute right-0 top-14 flex min-w-52 flex-col gap-1 rounded-xl border border-gold/60 bg-cream p-3 shadow-xl">
+          <a class="rounded-lg px-4 py-3 hover:bg-sage/20" href="#services">Services</a>
+          <a class="rounded-lg px-4 py-3 hover:bg-sage/20" href="#care">Our care</a>
+          <a class="rounded-lg px-4 py-3 hover:bg-sage/20" href="#areas">Areas</a>
+          <a class="rounded-lg bg-forest px-4 py-3 text-cream" href="#contact">Get in touch</a>
+        </nav>
+      </details>
+    </div>
+  </header>
+
+  <main id="main">
+    <section id="top" class="relative isolate overflow-hidden">
+      <div class="pointer-events-none absolute inset-0 -z-10 opacity-35" aria-hidden="true">
+        <img src="/assets/leaf-ornament.svg" alt="" class="absolute -left-10 -top-7 w-44 rotate-[-8deg] sm:w-64" />
+        <img src="/assets/leaf-ornament.svg" alt="" class="absolute -right-10 top-0 w-44 -scale-x-100 rotate-[-10deg] sm:w-64" />
+      </div>
+      <div class="mx-auto grid max-w-7xl items-center gap-5 px-5 pb-12 pt-12 sm:px-8 sm:pb-16 sm:pt-16 lg:grid-cols-[0.92fr_1.08fr] lg:gap-2 lg:px-12 lg:py-20">
+        <div class="relative z-10 max-w-2xl lg:py-8">
+          <p class="mb-5 inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.2em] text-olive sm:text-sm"><span class="h-px w-8 bg-gold"></span> Dog walking & care in Derbyshire</p>
+          <h1 class="font-display text-[clamp(3.2rem,8vw,6.8rem)] font-semibold leading-[0.9] tracking-[-0.055em]">{business.name}<span class="text-olive">.</span></h1>
+          <div class="my-6 flex max-w-lg items-center gap-3 text-sage" aria-hidden="true"><span class="h-px flex-1 bg-gold"></span><Icon name="paw" class="h-5 w-5" /><span class="h-px flex-1 bg-gold"></span></div>
+          <p class="max-w-xl font-display text-2xl italic leading-snug text-olive sm:text-3xl">{business.tagline}</p>
+          <p class="mt-5 max-w-lg text-base leading-7 text-forest/80 sm:text-lg">Thoughtful walks and at-home visits, shaped around your dog’s routine and the care they love.</p>
+          <div class="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center">
+            <a href={`tel:${business.phoneHref.replace('tel:', '')}`} class="inline-flex min-h-14 items-center justify-center gap-3 rounded-full bg-forest px-7 py-4 font-semibold text-cream shadow-sm transition hover:bg-olive">Call {business.phone}<Icon name="arrow" class="h-5 w-5" /></a>
+            <a href="#services" class="inline-flex min-h-14 items-center justify-center rounded-full border border-olive/50 px-7 py-4 font-semibold text-forest transition hover:bg-olive/10">Explore services</a>
+          </div>
+          <p class="mt-5 text-sm text-olive">Friendly, personal care across Derby and nearby areas</p>
+        </div>
+        <div class="relative mx-auto w-full max-w-3xl lg:-mr-12 lg:max-w-none">
+          <div class="absolute inset-4 -rotate-2 rounded-[2rem] border border-gold/50 sm:inset-7" aria-hidden="true"></div>
+          <div class="relative overflow-hidden rounded-[1.7rem] border-[6px] border-cream shadow-[0_22px_70px_-28px_rgba(41,53,28,0.35)] ring-1 ring-olive/20">
+            <img src="/assets/countryside.svg" alt="Illustration of a dog walker and dogs exploring rolling Derbyshire countryside" class="aspect-[1.38] w-full object-cover" fetchpriority="high" />
+          </div>
+          <div class="absolute -bottom-4 left-2 flex items-center gap-3 rounded-2xl border border-gold/60 bg-cream px-4 py-3 shadow-lg sm:bottom-5 sm:left-0 sm:px-5">
+            <span class="flex h-10 w-10 items-center justify-center rounded-full bg-olive text-cream"><Icon name="paw" class="h-5 w-5" /></span>
+            <span class="font-display text-base italic sm:text-lg">Care with a little extra heart</span>
+          </div>
+        </div>
+      </div>
+      <div class="mx-auto max-w-7xl px-5 pb-6 sm:px-8 lg:px-12"><div class="h-px bg-gradient-to-r from-transparent via-gold/70 to-transparent"></div></div>
+    </section>
+
+    <section id="services" class="mx-auto max-w-7xl px-5 py-16 sm:px-8 sm:py-20 lg:px-12 lg:py-24">
+      <div class="mb-10 flex flex-col justify-between gap-5 sm:mb-14 sm:flex-row sm:items-end">
+        <div><p class="mb-3 text-xs font-bold uppercase tracking-[0.2em] text-olive">Here when you need us</p><h2 class="font-display text-4xl font-semibold tracking-tight sm:text-5xl">Care that fits their day</h2></div>
+        <p class="max-w-md text-base leading-7 text-forest/75">From energetic countryside walks to reassuring pop-in visits, every dog gets care that suits them.</p>
+      </div>
+      <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+        {business.services.map((service, index) => (
+          <article class="group relative flex min-h-[18rem] flex-col rounded-2xl border border-gold/55 bg-white/25 p-6 transition duration-300 hover:-translate-y-1 hover:bg-white/55 hover:shadow-lg sm:p-7">
+            <div class="mb-9 flex items-center justify-between">
+              <span class="flex h-14 w-14 items-center justify-center rounded-full bg-olive text-cream"><Icon name={serviceIcons[index]} class="h-7 w-7" /></span>
+              <span class="font-display text-xl italic text-sage">{service.number}</span>
+            </div>
+            <h3 class="font-display text-2xl font-semibold leading-tight">{service.title}</h3>
+            <p class="mt-3 text-sm leading-6 text-forest/75">{service.description}</p>
+          </article>
+        ))}
+      </div>
+    </section>
+
+    <section id="care" class="relative overflow-hidden bg-forest text-cream">
+      <div class="pointer-events-none absolute -right-8 -top-4 opacity-20" aria-hidden="true"><img src="/assets/leaf-ornament.svg" alt="" class="w-56 rotate-12 sm:w-80" /></div>
+      <div class="mx-auto grid max-w-7xl gap-10 px-5 py-16 sm:px-8 sm:py-20 lg:grid-cols-[0.8fr_1.2fr] lg:items-center lg:gap-20 lg:px-12 lg:py-24">
+        <div class="relative">
+          <p class="mb-3 text-xs font-bold uppercase tracking-[0.2em] text-sage">Peace of mind for you</p>
+          <h2 class="font-display text-4xl font-semibold leading-tight sm:text-5xl">Good care starts with trust.</h2>
+          <p class="mt-5 max-w-md leading-7 text-cream/75">Your dog’s wellbeing comes first. Feel confident they’re in caring, capable hands while you’re away.</p>
+          <a href="#contact" class="mt-7 inline-flex items-center gap-3 font-semibold text-cream underline decoration-gold underline-offset-8 transition hover:text-sage">Let’s talk about your dog <Icon name="arrow" class="h-5 w-5" /></a>
+        </div>
+        <div class="grid gap-x-8 sm:grid-cols-2">
+          {business.qualifications.map((qualification) => <div class="flex items-center gap-4 border-b border-cream/20 py-5"><span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-cream/10 text-sage"><Icon name="check" class="h-5 w-5" /></span><span class="font-display text-xl sm:text-2xl">{qualification}</span></div>)}
+        </div>
+      </div>
+    </section>
+
+    <section id="areas" class="relative overflow-hidden">
+      <div class="mx-auto grid max-w-7xl gap-9 px-5 py-16 sm:px-8 sm:py-20 lg:grid-cols-[0.8fr_1.2fr] lg:items-center lg:gap-16 lg:px-12 lg:py-24">
+        <div>
+          <p class="mb-3 text-xs font-bold uppercase tracking-[0.2em] text-olive">Close to home</p>
+          <h2 class="font-display text-4xl font-semibold leading-tight sm:text-5xl">Local care, familiar paths.</h2>
+          <p class="mt-5 max-w-md leading-7 text-forest/75">Based in Derbyshire and covering a friendly neighbourhood of nearby communities.</p>
+        </div>
+        <div class="relative rounded-3xl border border-gold/65 bg-white/30 p-6 sm:p-9">
+          <img src="/assets/leaf-ornament.svg" alt="" aria-hidden="true" class="absolute bottom-0 right-0 w-24 opacity-40 sm:w-36" />
+          <div class="mb-6 flex items-center gap-3"><span class="flex h-12 w-12 items-center justify-center rounded-full bg-olive text-cream"><Icon name="pin" class="h-6 w-6" /></span><h3 class="font-display text-2xl font-semibold">Areas covered</h3></div>
+          <ul class="relative grid grid-cols-2 gap-x-4 gap-y-3 sm:grid-cols-3">
+            {business.areas.map((area) => <li class="flex items-center gap-2 text-sm sm:text-base"><span class="h-1.5 w-1.5 rounded-full bg-olive"></span>{area}</li>)}
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="mx-auto max-w-7xl px-5 pb-16 sm:px-8 sm:pb-20 lg:px-12 lg:pb-24">
+      <div class="relative overflow-hidden rounded-[2rem] bg-olive px-6 py-12 text-cream sm:px-12 sm:py-16 lg:px-16">
+        <div class="pointer-events-none absolute -bottom-12 -right-6 opacity-20" aria-hidden="true"><img src="/assets/leaf-ornament.svg" alt="" class="w-48 -scale-x-100 sm:w-72" /></div>
+        <div class="relative grid gap-8 lg:grid-cols-[1fr_auto] lg:items-center">
+          <div><p class="mb-3 text-xs font-bold uppercase tracking-[0.2em] text-cream/70">A happy tail starts here</p><h2 class="max-w-2xl font-display text-4xl font-semibold leading-tight sm:text-5xl">Tell us a little about your best friend.</h2><p class="mt-4 max-w-xl leading-7 text-cream/80">Get in touch to chat about the kind of walks or care that would suit your dog.</p></div>
+          <div class="flex flex-col gap-3 sm:flex-row lg:flex-col">
+            <a href={business.phoneHref} class="inline-flex min-h-14 items-center justify-center gap-3 rounded-full bg-cream px-6 py-4 font-semibold text-forest transition hover:bg-white"><Icon name="phone" class="h-5 w-5" />{business.phone}</a>
+            <a href={`mailto:${business.email}`} class="inline-flex min-h-14 items-center justify-center gap-3 rounded-full border border-cream/60 px-6 py-4 font-semibold text-cream transition hover:bg-cream/10"><Icon name="mail" class="h-5 w-5" />Email us</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="border-t border-gold/50">
+    <div class="mx-auto flex max-w-7xl flex-col gap-5 px-5 py-7 sm:flex-row sm:items-center sm:justify-between sm:px-8 lg:px-12">
+      <a href="#top" class="flex items-center gap-3"><img src="/assets/paw-logo.svg" alt="" class="h-9 w-9" /><span class="font-display text-lg font-bold">{business.name}</span></a>
+      <div class="flex flex-col gap-2 text-sm text-forest/75 sm:flex-row sm:items-center sm:gap-6"><a class="hover:text-forest" href={business.phoneHref}>{business.phone}</a><a class="hover:text-forest" href={`mailto:${business.email}`}>{business.email}</a></div>
+      <p class="text-xs text-olive">© {new Date().getFullYear()} {business.name}</p>
+    </div>
+  </footer>
+</BaseLayout>
+
+<script>
+  const menu = document.querySelector('header details');
+  menu?.querySelectorAll('a').forEach((link) => {
+    link.addEventListener('click', () => menu.removeAttribute('open'));
+  });
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape' && menu?.hasAttribute('open')) {
+      menu.removeAttribute('open');
+      menu.querySelector('summary')?.focus();
+    }
+  });
+</script>
