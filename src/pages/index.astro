@@ -11,6 +11,7 @@ const serviceIcons = ['walk', 'paw', 'bowl', 'home'] as const;
     <div class="site-shell flex items-center justify-center py-4 text-center">
       <nav aria-label="Main navigation" class="hidden items-center justify-center gap-8 md:flex">
         <a class="nav-link" href="#services">Services</a>
+        <a class="nav-link" href="#pricing">Pricing</a>
         <a class="nav-link" href="#care">Our care</a>
         <a class="nav-link" href="#areas">Areas</a>
         <a class="rounded-full border border-forest px-5 py-2.5 text-sm font-semibold transition-colors hover:bg-forest hover:text-cream" href="#contact">Get in touch</a>
@@ -22,6 +23,7 @@ const serviceIcons = ['walk', 'paw', 'bowl', 'home'] as const;
         </summary>
         <nav aria-label="Mobile navigation" class="mt-4 flex flex-col gap-1 rounded-2xl border border-gold/60 bg-cream p-3">
           <a class="rounded-lg px-4 py-3 hover:bg-sage/20" href="#services">Services</a>
+          <a class="rounded-lg px-4 py-3 hover:bg-sage/20" href="#pricing">Pricing</a>
           <a class="rounded-lg px-4 py-3 hover:bg-sage/20" href="#care">Our care</a>
           <a class="rounded-lg px-4 py-3 hover:bg-sage/20" href="#areas">Areas</a>
           <a class="rounded-lg bg-forest px-4 py-3 text-cream" href="#contact">Get in touch</a>
@@ -58,6 +60,27 @@ const serviceIcons = ['walk', 'paw', 'bowl', 'home'] as const;
             <span class="mb-6 flex h-14 w-14 items-center justify-center rounded-full bg-olive text-cream"><Icon name={serviceIcons[index]} class="h-7 w-7" /></span>
             <h3 class="flex min-h-14 items-center justify-center text-balance font-display text-2xl font-semibold leading-7">{service.title}</h3>
             <p class="mt-4 text-sm leading-6 text-forest/80">{service.description}</p>
+          </article>
+        ))}
+      </div>
+    </section>
+    <section id="pricing" aria-labelledby="pricing-heading" class="site-shell pb-10 sm:pb-12 lg:pb-14">
+      <div class="section-heading">
+        <p class="eyebrow">Visits, walks & a helping hand</p>
+        <h2 id="pricing-heading" class="section-title">Pricing</h2>
+      </div>
+      <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+        {business.pricing.map((service) => (
+          <article class="rounded-3xl border border-gold/65 bg-white/25 p-6 sm:p-8">
+            <h3 class="flex min-h-14 items-center justify-center text-balance font-display text-2xl font-semibold leading-7">{service.title}</h3>
+            <dl class:list={['mt-4 grid gap-4', { 'grid-cols-2': service.rates.length > 1 }]}>
+              {service.rates.map((rate) => (
+                <div>
+                  <dt class="text-sm leading-6 text-forest/80">{rate.label}</dt>
+                  <dd class="mt-1 font-display text-4xl font-semibold leading-tight text-olive">{rate.price}</dd>
+                </div>
+              ))}
+            </dl>
           </article>
         ))}
       </div>

@@ -6,6 +6,12 @@ export const business = {
   email: 'dogstailandpaws@gmail.com',
   areas: ['Boulton Moor', 'Alvaston', 'Chellaston', 'Shelton Lock', 'Spondon', 'Allestree', 'Quarndon'],
   qualifications: ['Pet First Aid Trained', 'DBS Checked', 'Dog Walking Certificate', 'Fully Insured'],
+  pricing: [
+    { title: 'Pop-in visit', rates: [{ label: 'Per visit', price: '£10' }] },
+    { title: 'Feeding visit', rates: [{ label: 'Per visit', price: '£8' }] },
+    { title: 'Dog poo clean-up', rates: [{ label: 'Starting from', price: '£8' }] },
+    { title: 'Weekend walks', rates: [{ label: '30 minutes', price: '£14' }, { label: '1 hour', price: '£20' }] }
+  ],
   services: [
     { number: '01', title: 'Solo & group dog walks', description: 'Tailored walks for exercise, enrichment and fun, whether your dog prefers one-to-one attention or social group walks.', icon: 'walk' },
     { number: '02', title: 'Puppy visits', description: 'Short visits for toilet breaks, playtime, reassurance and help with your puppy’s daily routine.', icon: 'paw' },
